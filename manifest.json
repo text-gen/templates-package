@@ -1,11 +1,11 @@
 {
-    "packageId": "default",
-    "name": "Default Prompts Package",
+    "packageId": "Put_Package_Id_Here",
+    "name": "Name of your package",
     "version": "0.0.1",
     "minTextGeneratorVersion": "0.1.0",
-    "description": "This is the main package that comes with Text Generator plugin in Obsidian",
-    "author": "Noureddine Haouari",
+    "description": "The description of the content of this package",
+    "author": "Your name",
     "tags": "writing, brainstorming",
-    "authorUrl": "https://www.buymeacoffee.com/haouarine",
-    "repo": "text-gen/gpt-3-prompt-templates"
+    "authorUrl": "Support URL",
+    "repo": "username/repo"
 }
