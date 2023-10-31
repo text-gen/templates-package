@@ -37,11 +37,11 @@ jobs:
       - name: Remove file extensions
         run: sed -i 's/\..*$//' prompts.txt
 
-      # Create data.json with the list of prompts
       - name: Create data.json
         run: |
+          sed -i -e '$!s/$/,/' prompts.txt
           sed -i 's/^/ "/' prompts.txt
-          sed -i 's/$/",/' prompts.txt
+          sed -i '$ s/,$//' prompts.txt
           echo "{
           \"prompts\": [
           $(cat prompts.txt)
