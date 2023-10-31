@@ -75,9 +75,3 @@ jobs:
           asset_path: manifest.json
           asset_name: manifest.json
           asset_content_type: application/json
-          
-      - name: push data.json
-        run: |
-          git config user.name ${{ github.actor }}
-          git config user.email ${{ github.actor }}
-          git diff --exit-code || git commit -am "Updated data.json" && git push
