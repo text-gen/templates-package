@@ -39,9 +39,10 @@ jobs:
 
       - name: Create data.json
         run: |
-          sed -i -e '$!s/$/,/' prompts.txt
+          sed -i 's/"/\\"/g' prompts.txt
+          sed -i -e '$!s/$/",/' prompts.txt
+          sed -i '$ s/$/",/' prompts.txt
           sed -i 's/^/ "/' prompts.txt
-          sed -i '$ s/,$//' prompts.txt
           echo "{
           \"prompts\": [
           $(cat prompts.txt)
