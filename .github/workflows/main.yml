@@ -37,7 +37,6 @@ jobs:
       - name: Remove file extensions
         run: sed -i 's/\..*$//' prompts.txt
 
-
       - name: Create data.json
         run: |
           # Add double quotes around each line
