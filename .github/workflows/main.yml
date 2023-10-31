@@ -37,17 +37,17 @@ jobs:
       - name: Remove file extensions
         run: sed -i 's/\..*$//' prompts.txt
 
+
       - name: Create data.json
         run: |
-          sed -i 's/"/\\"/g' prompts.txt
-          sed -i -e '$!s/$/",/' prompts.txt
-          sed -i '$ s/$/",/' prompts.txt
-          sed -i 's/^/ "/' prompts.txt
-          echo "{
-          \"prompts\": [
-          $(cat prompts.txt)
-            ]
-          }" > data.json
+          # Add double quotes around each line
+          sed -i 's/^/"/' prompts.txt
+          sed -i 's/$/"/' prompts.txt
+          
+          # Add comma at the end of each line except the last one
+          sed -i '$!s/$/,/' prompts.txt
+          # Create the JSON file
+          echo "{\"prompts\": [$(cat prompts.txt)]}" > data.json
         
       - name: Create Release
         id: create_release
